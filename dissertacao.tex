@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt,normaltoc,capchap]{estilos/abnt}
+\usepackage{estilos/abnt-UEPG}
+\usepackage[top=3cm,bottom=2cm,left=3cm,right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lscape}
+\usepackage{longtable}
+\usepackage{fancyvrb}
+\usepackage[alf,abnt-etal-text=it,bibjustif]{estilos/abntcite}
+\usepackage{listings}
+%\usepackage{fancychap}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{nomencl}
+\usepackage{tipa}
+\usepackage{array,multirow,graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{pdfpages}
+\usepackage{times}
+\usepackage{titletoc}
+\usepackage{tocbasic}
+\usepackage{tabularx}
+\usepackage{pifont} 
+\renewcommand{\lstlistingname}{Código} % definição visual dos códigos fonte
+
+%%%%%%%% lista de quadros
+\usepackage{trivfloat}
+\trivfloat{quadro}
+\floatstyle{plaintop} % Forçar posição da legenda para o topo
+\restylefloat{quadro} % Forçar posição da legenda para o topo
+\addto\captionsbrazil{%
+\renewcommand{\listquadroname}{Lista de Quadros}}
+
+\renewcommand{\nomname}{Lista de Siglas}
+\makeatletter   
+\DeclareTOCStyleEntry[
+  entrynumberformat=\entrynumberwithprefix{\figurename},
+  dynnumwidth,
+  numsep=1em
+]{tocline}{figure}
+\newcommand\entrynumberwithprefix[2]{\hspace{-0.70cm}#1\enspace#2 \hspace{0.22cm} --\hfill }
+\renewcommand{\nomname}{Lista de Siglas}
+
+\titlecontents{table}
+  [5.5em]
+  {}
+  {\contentslabel[Tabela~\thecontentslabel~ \hspace{0.1cm} -- \hspace{0.15cm}]{5.5em}}
+  {0em}
+  {\titlerule*[1pc]{.}\contentspage}
+
+\makeatother
+
+
+\lstset{language=Java, basicstyle=\footnotesize, numbers=left, frame=tb, breaklines=true, basicstyle=\footnotesize}
+
+%------------------------------------------------------------------------------
+% Dicionário de hifenização em português
+%------------------------------------------------------------------------------
+
+\hyphenation{pro-ces-sa-men-to}
+\hyphenation{a-pre-sen-ta-da}
+\hyphenation{pro-gra-ma}
+%------------------------------------------------------------------------------
+% Configurações da dissertação
+%------------------------------------------------------------------------------
+
+
+\instituicao{UNIVERSIDADE ESTADUAL DE PONTA GROSSA\\
+PRÓ-REITORIA DE PESQUISA E PÓS-GRADUAÇÃO\\
+PROGRAMA DE PÓS-GRADUAÇÃO EM \\COMPUTAÇÃO APLICADA\\ }
+
+\autor{NOME COMPLETO DO DISCENTE}
+
+\titulo{TITULO DA DISSERTAÇÃO ESCRITO EM LETRA MAIÚSCULA}
+
+\comentario{Projeto de dissertação apresentado para obtenção do título de Mestre em Computação Aplicada na Universidade Estadual de Ponta Grossa, Área de concentração: Escreva a área aqui \\ \\ Orientador: Prof. Dr. Nome do Orientador}
+
+\local{Ponta Grossa}
+
+\data{2020}
+
+%------------------------------------------------------------------------------
+% Início do documento 
+%------------------------------------------------------------------------------
+
+\begin{document}
+
+\capa
+
+\folhaderosto
+%\include{escrita/agradecimentos2} 
+%\includepdf[pages=-]{pdfs/Ficha_catalogr_fica.pdf}
+%\includepdf[pages=-]{pdfs/ata-aprovacao.pdf}
+%\include{escrita/dedicatoria}
+%\include{escrita/agradecimentos}
+%\include{escrita/resumo}
+%\include{escrita/abstract}
+%\listadesiglas
+
+\listadefiguras
+\listadetabelas
+
+\makenomenclature
+\printnomenclature
+
+%\listofquadros
+\sumario
+
+\pagestyle{headings}
+
+\lhead{\centering \nouppercase{\rightmark}}
+\rhead{\centering \nouppercase{\leftmark}}
+\pagestyle{fancy}
+\fancyfoot{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter. \ #1}{}}
+\fancyhead[RO, L]{ \thepage}
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot{}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+}
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\setcounter{page}{6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             CAPITULOS
+
+%\include{escrita/identificacao}
+\include{escrita/introducao}
+%\include{escrita/bjetivo}
+\include{escrita/revisao}
+%\include{escrita/metodologia}
+%\include{escrita/resultados}
+%\include{escrita/discussao}
+%\include{escrita/conclusoes}
+%\include{escrita/cronograma}
+%\include{escrita/publicacao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{estilos/abnt-alf}
+\bibliography{base}
+
+%\include{Apendice}
+%\include{anexo}
+
+\end{document}
+
+%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%% Fim do documento  
+%%%%%%%%%%%%%%%
