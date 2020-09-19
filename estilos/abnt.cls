@@ -586,7 +586,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
    \setlength{\headsep}{1.2cm-\headheight}
    % The distance beetwen the paper border and the number must be 2cm
    % 2cm=\topmargin+\voffset+1in
-    \setlength{\topmargin}{2cm-1in-\voffset} 
+    \setlength{\topmargin}{3cm-1in-\voffset} 
    % The inferior border must be 2cm
    % \paperheight=\topmargin+\voffset+1in+\headheight+\headsep+\textheight+2cm
     \setlength{\textheight}% 
@@ -1482,6 +1482,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
   \global\@topnum\z@
   \@afterindentfalse
   \@makeschapterhead{\contentsname}%
+  \vspace{-12mm}
   \@afterheading
   \@mkboth{\contentsname}{\contentsname}
   \@starttoc{toc}%
@@ -1502,6 +1503,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
     {\setboolean{ABNTrestorecol}{false}}%
   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listoffigures.}}{}
   \pretextualchapter{Lista de Figuras}
+  \vspace{-12mm}
   %\pretextualchapter{\listfigurename}
   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
   \@starttoc{lof}%
@@ -1518,6 +1520,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
     {\setboolean{ABNTrestorecol}{false}}%
   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listoftables.}}{}
   \pretextualchapter{\listtablename}
+  \vspace{-12mm}
   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
   \@starttoc{lot}%
   \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
@@ -1843,6 +1846,24 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
    \begin{espacosimples}%
   }%
   {\end{espacosimples}\newpage}%abstract
+  
+  
+  %%%%%%%%%%%   Agradecimentos  %%%%%%%%%%%
+% Ambiente para Resumo. O mesmo efeito do abstract, mas em portugues. 
+%
+\newcommand{\agradecimentosname}{Agradecimentos}
+\newenvironment{agradecimentos}%
+  {%
+   \if@openright\cleardoublepage\else\clearpage\fi%
+   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{agradecimentos.}}{}
+   \pretextualchapter{\agradecimentosname}%
+   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
+   \begin{espacoumemeio}
+
+  }%
+  {\end{espacoumemeio}\newpage}
+  
+  
 
 
 
@@ -1850,7 +1871,7 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 	%\makeatletter   %Para que ele entenda o @
 % Define os comandos que montam a lista de símbolos
 %%%%%%%%%%%%%%% LISTA DE SIMBOLOS
-\newcommand{\listadesimbolos}{\pretextualchapter{Lista de Símbolos}\@starttoc{lsb}}
+\newcommand{\listadesimbolos}{\pretextualchapter{Lista de Símbolos}\vspace{-12mm}\@starttoc{lsb}}
 \newcommand{\simbolo}[2]{{\addcontentsline{lsb}{simbolo}{\numberline{#1}{#2}}}#1}
 \newcommand{\l@simbolo}[2]{
 	\vspace{-0.75cm}
@@ -1860,15 +1881,16 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
 	{\normalfont #1}\hfil\nobreak\par}
 %%%%%%%%%%%%%%%% LISTA DE SIGLAS
-%\newcommand{\listadesiglas}{\pretextualchapter{Lista de Siglas}\@starttoc{lsg}}
-%\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{\numberline{#1}{#2}}}#1}
-%\newcommand{\l@sigla}[2]{
-%	\vspace{-0.75cm}
-%	\leftskip 0em
-%	\parindent 0em
-%	\@tempdima 6em
-%	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-%	{\normalfont #1}\hfil\nobreak\par}
+
+\newcommand{\listadesiglas}{\pretextualchapter{Lista de Siglas}\vspace{-12mm}\@starttoc{lsg}\vspace{-2cm}}
+\newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{\numberline{#1}{#2}}}#1}
+\newcommand{\l@sigla}[2]{
+	\vspace{-0.75cm}
+	\leftskip 0em
+	\parindent 0em
+	\@tempdima 6em
+	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+	{\normalfont #1}\hfil\nobreak\par}
 %%%%%%%%%%%%%%%%%%%%%%%%
 %\makeatother
 %%%
