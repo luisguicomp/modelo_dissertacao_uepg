@@ -59,8 +59,7 @@
   \renewcommand*\l@subsection{\@dottedtocline{2}{0em}{4.1em}}
   \renewcommand*\l@subsubsection{\@dottedtocline{3}{0em}{4.1em}}
 
-\captionsetup{justification   = raggedright,
-              singlelinecheck = false}
+
 %-----------------------------------------------------
 % Redefine os comandos de cabeçalho do capítulo para 
 % remover alguns espaços acima e abaixo do nome
@@ -214,6 +213,9 @@
 % de tamanho normal nas seções
 %------------------------------------------------------------------------------
 
+\captionsetup{justification   = raggedright,
+              singlelinecheck = false}
+
 \renewcommand\section{\ABNTstartsection{section}{1}{\z@}%
                            {-3.5ex \@plus -1ex \@minus -.2ex}%
                            {2.3ex \@plus.2ex}%
@@ -228,7 +230,7 @@
                            {-3.25ex\@plus -1ex \@minus -.2ex}%
                            {1.5ex \@plus .2ex}%
                            {\espaco{simples}\normalfont%
-                            \normalsize}}
+                            \ABNTsectionfont\normalsize}}
 \renewcommand\paragraph{\ABNTstartsection{paragraph}{4}{\z@}%
                            {3.25ex \@plus1ex \@minus.2ex}%
                            {-1em}%
@@ -248,14 +250,14 @@
 
 \renewenvironment{thebibliography}[1]%
   {% replacing \chapter*{\refname\@mkboth...}
-    \def\refname{REFER\^ENCIAS}
+    \def\refname{REFER\^ENCIAS BIBLIOGR\'AFICAS}
    \if@openright\cleardoublepage\else\clearpage\fi%
    \thispagestyle{\chaptertitlepagestyle}%
    \global\@topnum\z@%
    \@afterindentfalse%
    \@mkboth{\refname}{\refname}% end \chapter*{\refname...}
    \ifthenelse{\boolean{ABNTincludeintoc}}%
-      {\ABNTaddcontentsline{toc}{chapter}{\textbf{REFER\^ENCIAS}}}%
+      {\ABNTaddcontentsline{toc}{chapter}{\textbf{REFER\^ENCIAS BIBLIOGRÁFICAS}}}%
       {}%
     \if@twocolumn%
       \@topnewpage[\@makeschapterhead{\refname}]%
@@ -263,7 +265,6 @@
       \@makeschapterhead{\refname}%
       \@afterheading%
     \fi%
-    \vspace{-12mm}
    \list{\@biblabel{\@arabic\c@enumiv}}%
         {\settowidth\labelwidth{\@biblabel{#1}}%
          \leftmargin\labelwidth%
